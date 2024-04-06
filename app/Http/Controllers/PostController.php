@@ -17,6 +17,7 @@ class PostController extends Controller
         $post = Post::find(1);
         dd($post->category);
         // return view('post.index', compact('posts'));
+        //test commit
     }
 
     public function create()
