@@ -23,6 +23,14 @@
               @endforeach
           </select>
       </div>
+      <div class="form-group">
+          <label for="tags">Tags</label>
+          <select multiple class="form-control" id="tags" name="tags[]">
+              @foreach($tags as $tag)
+              <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+              @endforeach
+          </select>
+      </div>
       <div class="mt-3">
           <button type="submit" class="btn btn-primary">Create</button>
       </div>
