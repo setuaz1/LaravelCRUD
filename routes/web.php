@@ -15,17 +15,16 @@ Route::group(['namespace'=>'App\Http\Controllers\Post'], function () {
     Route::get('/posts/{post}/edit', 'EditController')->name('post.edit');
     Route::patch('/posts/{post}', 'UpdateController')->name('post.update');
     Route::delete('/posts/{post}', 'DestroyController')->name('post.delete');
+
+    //Route::delete('/main', 'MainController@index')->name('main.delete');
+
 });
 
-
-
-
-
-
-
-
-// Route::delete('/posts/{post}', 'App\Http\Controllers\PostController@destroy')->name('post.delete');
-
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function() {
+    Route::group(['namespace' => 'Post'], function() {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
 
 
 Route::get('/posts/update', 'App\Http\Controllers\PostController@update');
