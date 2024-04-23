@@ -6,11 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Filters\PostFilter;
 use App\Http\Requests\Post\FilterRequest;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 class IndexController extends BaseController
 {
+    /**
+     * @throws BindingResolutionException
+     * @throws AuthorizationException
+     */
     public function __invoke(FilterRequest $request)
     {
+
+        //$this->authorize('view', auth()->user());
+
+        //dd(auth()->user()->role);
+
+
         $data = $request->validated();
         //dd($data);
 

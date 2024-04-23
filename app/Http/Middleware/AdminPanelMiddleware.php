@@ -15,7 +15,6 @@ class AdminPanelMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $age = $request->route('age');
         if(auth()->user()->role !== 'admin') {
             return redirect()->route('home');
         }

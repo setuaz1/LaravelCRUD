@@ -12,9 +12,14 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'AdminPanelMiddleware' => \App\Http\Middleware\AdminPanelMiddleware::class
+            'AdminPanelMiddleware' => \App\Http\Middleware\AdminPanelMiddleware::class,
+            'AdminPolicy' => \App\Http\Middleware\AdminPolicy::class
         ]);
+//        $middleware->validateCsrfTokens([
+//            '/posts'
+//        ]);
     })
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
