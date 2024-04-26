@@ -24,13 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-//
-//        Gate::define('admin', function (User $user, Post $model): bool
-//        {
-//            //dd(1111111);
-//            return $model->role === 'admin';
-//        }
-//        );
+
+        \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::except([
+            '/posts'
+        ]);
+
 
         Paginator::defaultView('vendor.pagination.bootstrap-4');
     }
