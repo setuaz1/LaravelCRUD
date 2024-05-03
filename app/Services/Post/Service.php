@@ -47,7 +47,7 @@ class Service
             $tagIds = $this->getTagIdsWithUpdate($tags);
             $data['category_id'] = $this->getCategoryIdWithUpdate($category);
             $post->update($data);
-            $post->tags()->sync($tagIds); 
+            $post->tags()->sync($tagIds);
 
             DB::commit();
         } catch(\Exception $exception) {
